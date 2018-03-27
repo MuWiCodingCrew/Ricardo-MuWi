@@ -20,9 +20,9 @@ app.post("/test",function(req, res){
 });
 
 app.post("/tag", function (req, res) {
-    databaseHandler.sql("SELECT a.* FROM (((tcontent AS a INNER JOIN tContentAffiliation AS b ON a.ContentID = b.ContentID) INNER JOIN tlist as c ON b.ListID = c.ListID) RIGHT JOIN tchapter as d ON c.ChapterID = d.ChapterID) WHERE d.title = '" + req.body.chapter + "';", function (data) {
-        console.log(data);
-    });
+  databaseHandler.generateNetflix(0, function(data){
+    console.log(data);
+  });
 })
 
 app.listen(3000);

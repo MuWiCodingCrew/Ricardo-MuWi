@@ -67,7 +67,7 @@ INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentda
 INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (3, "Bild 2 Kapitel 1", "Einige spannende Informationen", "png", "./upload/3_MP3ICON.png");
 INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (4, "Zusatzinformationen Kapitel 1", "Einige spannende Informationen", "mp3", "./upload/4_musicSample.mp3");
 INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (5, "OSI Schichten Kapitel 1", "Einige spannende Informationen", "jpg", "./upload/5_OSI7Schichtenmodell.jpg");
-INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (5, "Rational Unified Prozess", "Einige spannende Informationen", "jpg", "./upload/6_RUP.jpg");
+INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (6, "Rational Unified Prozess", "Einige spannende Informationen", "jpg", "./upload/6_RUP.jpg");
 
 INSERT INTO MuWi.tcontentaffiliation (contentaffiliationid, listid, contentid) VALUES (0, 0, 0);
 INSERT INTO MuWi.tcontentaffiliation (contentaffiliationid, listid, contentid) VALUES (1, 0, 1);
