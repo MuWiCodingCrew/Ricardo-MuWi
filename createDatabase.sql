@@ -15,7 +15,7 @@ CREATE table MuWi.tContentClassification (ContentClassificationID int NOT NULL, 
 CREATE table MuWi.tList (ListID int NOT NULL, ChapterID int NULL, UserID int NOT NULL, PRIMARY KEY (ListID), FOREIGN KEY (UserID) REFERENCES tUser(UserID), FOREIGN KEY (ChapterID) REFERENCES tChapter(ChapterID));
 CREATE table MuWi.tContentAffiliation (ContentAffiliationID int NOT NULL, ListID int NOT NULL, ContentID int NOT NULL, PRIMARY KEY (ContentAffiliationID), FOREIGN KEY (ContentID) REFERENCES tContent(ContentID), FOREIGN KEY (ListID) REFERENCES tList(ListID));
 
-CREATE VIEW MuWi.vContent AS (SELECT a.*, d.ChapterID, c.ListID, d.Title AS 'ChapterTitle' FROM (((MuWi.tcontent AS a INNER JOIN MuWi.tContentAffiliation AS b ON a.ContentID = b.ContentID) INNER JOIN MuWi.tlist as c ON b.ListID = c.ListID) RIGHT JOIN MuWi.tchapter as d ON c.ChapterID = d.ChapterID));
+CREATE VIEW MuWi.vContent AS (SELECT a.*, d.ChapterID, c.ListID, d.Title AS 'ChapterTitle' FROM (((MuWi.tcontent AS a INNER JOIN MuWi.tContentAffiliation AS b ON a.ContentID = b.ContentID) INNER JOIN MuWi.tlist as c ON b.ListID = c.ListID) INNER JOIN MuWi.tchapter as d ON c.ChapterID = d.ChapterID));
 CREATE VIEW MuWi.vTagList AS (SELECT a.*, c.tagid, c.Title AS 'tagTitle' FROM ((MuWi.vContent as a INNER JOIN MuWi.tcontentclassification as b ON a.ContentID = b.ContentID) INNER JOIN MuWi.ttag as c ON b.TagID = c.tagid));
 
 INSERT INTO MuWi.tuser (userid, email, surname, prename, isstudent) VALUES ("0", "Maria.Wolff@gmx.de", "Wolff", "Maria", 1);
@@ -61,12 +61,13 @@ INSERT INTO MuWi.ttag (tagid, title) VALUES (9, "Customer Relationship Managemen
 INSERT INTO MuWi.ttag (tagid, title) VALUES (10, "Unified Modeling Language");
 INSERT INTO MuWi.ttag (tagid, title) VALUES (11, "Objektorientierte Programmierung");
 
-INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (0, "Folien Kapitel 1", "Einige spannende Informationen", "pdf", "./assets/1.pdf");
-INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (1, "Video Kapitel 1", "Einige spannende Informationen", "mp4", "./assets/2.mp4");
-INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (2, "Bild Kapitel 1", "Einige spannende Informationen", "jpg", "./assets/3.jpg");
-INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (3, "Soundtrack Kapitel 1", "Einige spannende Informationen", "mp3", "./assets/4.mp3");
-INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (4, "Zusatzinformationen Kapitel 1", "Einige spannende Informationen", "pdf", "./assets/5.pdf");
-INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (5, "Hörbuch Kapitel 1", "Einige spannende Informationen", "mp3", "./assets/6.mp3");
+INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (0, "Folien Kapitel 1", "Einige spannende Informationen", "pdf", "./upload/0_document.pdf");
+INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (1, "Video Kapitel 1", "Einige spannende Informationen", "mp4", "./upload/1_DB_SQL.mp4");
+INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (2, "Bild Kapitel 1", "Einige spannende Informationen", "jpg", "./upload/2_imageSample.jpg");
+INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (3, "Bild 2 Kapitel 1", "Einige spannende Informationen", "png", "./upload/3_MP3ICON.png");
+INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (4, "Zusatzinformationen Kapitel 1", "Einige spannende Informationen", "mp3", "./upload/4_musicSample.mp3");
+INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (5, "OSI Schichten Kapitel 1", "Einige spannende Informationen", "jpg", "./upload/5_OSI7Schichtenmodell.jpg");
+INSERT INTO MuWi.tcontent (contentid, title, description, contenttype, contentdata) VALUES (5, "Rational Unified Prozess", "Einige spannende Informationen", "jpg", "./upload/6_RUP.jpg");
 
 INSERT INTO MuWi.tcontentaffiliation (contentaffiliationid, listid, contentid) VALUES (0, 0, 0);
 INSERT INTO MuWi.tcontentaffiliation (contentaffiliationid, listid, contentid) VALUES (1, 0, 1);
