@@ -14,7 +14,7 @@ function myRequest(){
       success: function(data){
         var obj = JSON.parse(data)
         var elem = document.getElementById('myDiv');
-        elem.innerHTML += '<p class="myClass">ID: ' + obj.userid +  ', EMail: ' + obj.email + ', UserName: ' + obj.username + '</p>';
+        elem.innerHTML += '<p class="myClass">ID: ' + obj.userid +  ', EMail: ' + obj.email + '</p>';
       }
     });
   }
@@ -23,3 +23,17 @@ function myRequest(){
 $(document).ready(function(){
   $('#myDiv').on('click', '#myButton', myRequest);
 });
+
+
+function DatabaseLetsGo(){
+  var obj = {
+    chapter: "Einführung in das digitale Zeitalter"
+  }
+
+  $.ajax({
+    type: 'POST',
+    data: JSON.stringify(obj),
+    contentType: 'application/json',
+    url: 'http://localhost:3000/tag'
+  })
+}
